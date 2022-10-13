@@ -126,4 +126,21 @@ public class UsuarioDAO extends DAO {
 		}
 		return status;
 	}
+	
+	public boolean autenticar(String email, String senha) {
+        boolean resp = false;
+
+        try {
+            Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "SELECT * FROM usuario WHERE email LIKE '" + email + "' AND senha LIKE '" + senha + "'";
+            System.out.println(sql);
+            ResultSet rs = st.executeQuery(sql);
+            resp = rs.next();
+            st.close();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return resp;
+    }
 }
+

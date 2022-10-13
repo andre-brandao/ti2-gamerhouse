@@ -1,13 +1,13 @@
 package app;
 
 import static spark.Spark.*;
-import service.PlaylistService;
+import service.JogoService;
 import service.UsuarioService;
 
 
 public class Aplicacao {
 	
-	private static PlaylistService playlistService = new PlaylistService();
+	private static JogoService jogoService = new JogoService();
 	
 	private static UsuarioService usuarioService = new UsuarioService();
 	
@@ -16,17 +16,17 @@ public class Aplicacao {
         
         staticFiles.location("/public/front-end");
         
-        post("/playlist/insert", (request, response) -> playlistService.insert(request, response));
+        post("/jogo/insert", (request, response) -> jogoService.insert(request, response));
 
-        get("/playlist/:id", (request, response) -> playlistService.get(request, response));
+        get("/jogo/:id", (request, response) -> jogoService.get(request, response));
         
-        get("/playlist/list/:orderby", (request, response) -> playlistService.getAll(request, response));
+        get("/jogo/list/:orderby", (request, response) -> jogoService.getAll(request, response));
 
-        get("/playlist/update/:id", (request, response) -> playlistService.getToUpdate(request, response));
+        get("/jogo/update/:id", (request, response) -> jogoService.getToUpdate(request, response));
         
-        post("/playlist/update/:id", (request, response) -> playlistService.update(request, response));
+        post("/jogo/update/:id", (request, response) -> jogoService.update(request, response));
            
-        get("/playlist/delete/:id", (request, response) -> playlistService.delete(request, response));
+        get("/jogo/delete/:id", (request, response) -> jogoService.delete(request, response));
         
         
         
@@ -40,7 +40,7 @@ public class Aplicacao {
         
         post("/usuario/update/:id", (request, response) -> usuarioService.update(request, response));
         
-        get("/usuario/delete/:id", (request, response) -> playlistService.delete(request, response));
+        get("/usuario/delete/:id", (request, response) -> jogoService.delete(request, response));
            
              
     }

@@ -73,10 +73,10 @@
 
 <script type="text/javascript">
 
-	function confirmarDeleteplaylist(id, nome, preco) {
+	function confirmarDeletejogo(id, nome, preco) {
 
 		if (confirm('Confirmar a exclusão do jogo [' + nome + '] (ID ' + id + ') com preço R$ ' + preco)) {
-			location.href = '/playlist/delete/' + id;
+			location.href = '/jogo/delete/' + id;
 		}
 	}
 	function onLoad() {
@@ -107,7 +107,7 @@
 							<a class="flex-sm-fill text-sm-center nav-link active home"
 								href="http://localhost:6789/index.html">Home</a>
 							<a class="flex-sm-fill text-sm-center nav-link"
-								href="http://localhost:6789/playlist/list/1">GamerList</a>
+								href="http://localhost:6789/jogo/list/1">GamerList</a>
 							<a class="flex-sm-fill text-sm-center nav-link"
 								href="http://localhost:6789/usuario/list/1">Cadastro</a>
 
@@ -123,9 +123,9 @@
 
 	</header>
 	<input type="hidden" id="msg" name="msg" value="">
-	<UM-playlist>
+	<UM-jogo>
 		<br>
-		<LISTAR-playlist>
+		<LISTAR-jogo>
 			<style>
 				* {
 					box-sizing: border-box;
@@ -183,7 +183,7 @@
 					padding: 10px;
 				}
 
-				.Playlist {
+				.jogo {
 					padding: 15px;
 				}
 
